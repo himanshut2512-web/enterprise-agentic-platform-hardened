@@ -1,7 +1,7 @@
 [project]
-name = "unreliable-assistant-hardened"
+name = "aegis-grounded-agent"
 version = "0.1.0"
-description = "Enterprise-grade MCP-enabled retrieval and agent platform"
+description = "Aegis enterprise-grade MCP-enabled grounded-agent platform"
 requires-python = ">=3.11"
 dependencies = [
   "fastapi>=0.115",

@@ -5,7 +5,7 @@ from pydantic import ValidationError
 from app.core.models import AgentQueryRequest
 from app.core.agent import EnterpriseAgent
 
-app=FastAPI(title="The Unreliable Assistant — Hardened Enterprise Platform",version="0.1.0")
+app=FastAPI(title="Aegis Grounded Agent — Enterprise Operations API",version="0.1.0")
 app.add_middleware(CORSMiddleware,allow_origins=["*"],allow_methods=["*"],allow_headers=["*"])
 agent=EnterpriseAgent()
 
@@ -33,4 +33,4 @@ def approvals():
 
 @app.get("/api/v1/kpis")
 def kpis():
-    return {"mode":"validation","passed":36,"total":36,"release_status":"READY_FOR_VALIDATION"}
+    return {"mode":"validation","passed":0,"total":36,"release_status":"NOT_MEASURED"}

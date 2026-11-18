@@ -1,4 +1,4 @@
-# The Unreliable Assistant — Hardened Enterprise Platform
+# Aegis Grounded Agent — Enterprise Operations Platform
 
 This repository implements the end-to-end architecture specified in `design.md` and `WORKFLOW_PLANNER.md`.
 
