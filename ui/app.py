@@ -17,22 +17,54 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-:root { --aegis-navy: #0f172a; --aegis-blue: #2563eb; --aegis-bg: #f4f7fb; }
-.stApp { background: var(--aegis-bg); }
-.block-container { max-width: 1180px; padding-top: 1.5rem; }
-section[data-testid="stSidebar"] { background: #111827; }
-section[data-testid="stSidebar"] * { color: #e5e7eb; }
-section[data-testid="stSidebar"] .stTextInput input { background: #1f2937; border: 1px solid #374151; }
-.brand { display:flex; align-items:center; gap:12px; margin-bottom:4px; }
-.brand-mark { width:38px; height:38px; border-radius:10px; background:linear-gradient(135deg,#2563eb,#1d4ed8); display:grid; place-items:center; color:white; font-weight:800; }
-.brand-title { font-size:26px; font-weight:760; color:#0f172a; line-height:1.1; }
-.brand-subtitle { color:#64748b; font-size:13px; margin-top:5px; }
-.status-card { border:1px solid #dbe4f0; background:white; border-radius:12px; padding:14px 16px; }
-.status-dot { display:inline-block; width:8px; height:8px; border-radius:50%; background:#16a34a; margin-right:7px; }
-[data-testid="stMetric"] { background:white; border:1px solid #e2e8f0; border-radius:12px; padding:14px; }
-.stTabs [data-baseweb="tab-list"] { gap:8px; }
-.stTabs [data-baseweb="tab"] { height:44px; border-radius:8px 8px 0 0; padding-left:14px; padding-right:14px; }
-div[data-testid="stChatMessage"] { border:1px solid #e2e8f0; background:white; }
+html, body, [class*="css"] { font-family: Inter, "Segoe UI", Arial, sans-serif; }
+:root { --ae-navy:#172033; --ae-border:#dfe5ec; --ae-blue:#3157a5; }
+header[data-testid="stHeader"] { background:#ffffff; height:52px; min-height:52px; border-bottom:1px solid #edf0f4; }
+#MainMenu, footer { visibility:hidden; }
+[data-testid="stToolbar"] { display:none !important; }
+[data-testid="stDecoration"] { display:none !important; }
+[data-testid="stStatusWidget"] { display:none !important; }
+.stApp { background:#f5f7fa; }
+.block-container { max-width:1180px; margin:0 auto; padding:1.5rem 2rem 3rem 2rem; overflow:visible; }
+section[data-testid="stSidebar"] { background:#172033; border-right:1px solid #25314a; }
+section[data-testid="stSidebar"] > div { padding-top:1.25rem; }
+section[data-testid="stSidebar"] h3, section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] label, section[data-testid="stSidebar"] span,
+section[data-testid="stSidebar"] .caption { color:#dbe5f3 !important; }
+section[data-testid="stSidebar"] .stTextInput input { background:#202d46; color:#f8fafc; border:1px solid #3a4964; border-radius:8px; }
+section[data-testid="stSidebar"] hr { border-color:#344158; }
+.app-header { min-height:76px; height:76px; display:flex; align-items:center; justify-content:space-between; margin:0 0 18px 0; padding:14px 18px; background:#ffffff; border:1px solid var(--ae-border); border-radius:12px; box-shadow:0 2px 10px rgba(31,42,68,.04); overflow:hidden; }
+.app-brand { display:flex; align-items:center; gap:13px; min-width:0; height:48px; }
+.app-mark { flex:0 0 42px; width:42px; height:42px; display:grid; place-items:center; border-radius:10px; background:#3157a5; color:#ffffff; font-size:20px; font-weight:800; }
+.app-title { height:25px; color:#172033; font-size:20px; font-weight:750; line-height:25px; white-space:nowrap; overflow:visible; }
+.app-subtitle { height:18px; color:#667085; font-size:13px; line-height:18px; margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.app-status { display:flex; align-items:center; gap:8px; color:#35604d; font-size:12px; font-weight:700; white-space:nowrap; margin-left:16px; }
+.status-pulse { width:8px; height:8px; border-radius:50%; background:#16835a; box-shadow:0 0 0 4px #e5f4ee; }
+.status-pulse-off { background:#b42318; box-shadow:0 0 0 4px #fee4e2; }
+[data-testid="stMetric"] { background:#ffffff; border:1px solid var(--ae-border); border-radius:10px; padding:12px 14px; }
+[data-testid="stMetricLabel"] { color:#667085; white-space:normal; }
+[data-testid="stMetricValue"] { color:#172033; white-space:normal; overflow:visible; }
+.stTabs [data-baseweb="tab-list"] { gap:4px; border-bottom:1px solid var(--ae-border); }
+.stTabs [data-baseweb="tab"] { height:46px; color:#667085; font-weight:650; padding:0 12px; }
+.stTabs [aria-selected="true"] { color:#3157a5; border-bottom-color:#3157a5; }
+[data-testid="stChatMessage"] { background:#ffffff; border:1px solid var(--ae-border); border-radius:10px; color:#253047; }
+[data-testid="stChatInput"] textarea { border:1px solid #bcc7d5; border-radius:9px; }
+[data-testid="stDataFrame"] { border:1px solid var(--ae-border); border-radius:8px; }
+.status-card { border:1px solid #344158; background:#202d46; border-radius:8px; padding:10px 12px; }
+.status-dot { display:inline-block; width:7px; height:7px; border-radius:50%; background:#65b891; margin-right:7px; }
+
+.app-header {
+  align-items: center;
+}
+
+@media (max-width: 720px) {
+  .block-container { padding:1rem 1rem 2rem 1rem; }
+  .app-header { height:auto; min-height:82px; align-items:flex-start; }
+  .app-brand { height:auto; }
+  .app-title { height:auto; white-space:normal; }
+  .app-subtitle { height:auto; max-width:240px; white-space:normal; }
+  .app-status { display:none; }
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -59,20 +91,25 @@ with st.sidebar:
         api_status = "Unavailable"
         st.warning("API is unavailable")
 
-st.markdown("""
-<div class="brand">
-  <div class="brand-mark">A</div>
-  <div>
-    <div class="brand-title">Aegis Grounded Agent</div>
-    <div class="brand-subtitle">Enterprise operations console · policy-grounded retrieval · controlled execution</div>
+header_status = "SYSTEM AVAILABLE" if locals().get("api_status") == "Operational" else "SYSTEM OFFLINE"
+status_class = "status-pulse" if locals().get("api_status") == "Operational" else "status-pulse status-pulse-off"
+st.markdown(f"""
+<div class="app-header">
+  <div class="app-brand">
+    <div class="app-mark">A</div>
+    <div>
+      <div class="app-title">Aegis Grounded Agent</div>
+      <div class="app-subtitle">Enterprise operations console · Policy-grounded retrieval · Controlled execution</div>
+    </div>
   </div>
+  <div class="app-status"><span class="{status_class}"></span> {header_status}</div>
 </div>
 """, unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns(3)
 col1.metric("Platform Status", api_status if 'api_status' in locals() else "Unavailable")
-col2.metric("Retrieval Mode", "Hybrid RAG")
-col3.metric("Release Gate", "Validation Required")
+col2.metric("Retrieval Mode", "Grounded Hybrid RAG")
+col3.metric("Release Gate", "Evidence Required")
 
 st.divider()
 
