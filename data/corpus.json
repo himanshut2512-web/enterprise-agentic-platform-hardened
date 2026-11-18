@@ -1,0 +1,9 @@
+[
+  {"chunk_id": "a1b2c3d4e5f60718", "text": "Employees must rotate production credentials every 90 days. Rotation must be completed through the approved secrets manager.", "source_uri": "policy/security.md"},
+  {"chunk_id": "b2c3d4e5f6071829", "text": "Tier 3 mutations require an authorized human approver before the workflow transition is committed.", "source_uri": "policy/hitl.md"},
+  {"chunk_id": "c3d4e5f60718293a", "text": "The incident severity classification is SEV-1 for active customer data loss, SEV-2 for significant degradation, and SEV-3 for minor impact.", "source_uri": "runbooks/incidents.md"},
+  {"chunk_id": "d4e5f60718293a4b", "text": "SKU-099 refers to the North America enterprise support plan. It may be renewed only after account ownership is verified.", "source_uri": "catalog/products.md"},
+  {"chunk_id": "e5f60718293a4b5c", "text": "LOT-00044 is reserved for the 2026 compliance documentation batch. It is read-only until approval by the compliance reviewer.", "source_uri": "catalog/lots.md"},
+  {"chunk_id": "f60718293a4b5c6d", "text": "For cache isolation, the Redis key is SHA256(tenant_id:user_id:normalized_query) and must include a jittered TTL of 300 seconds plus or minus 45 seconds.", "source_uri": "architecture/cache.md"},
+  {"chunk_id": "0718293a4b5c6d7e", "text": "A ReAct loop is bounded to five iterations, 120 milliseconds per step, and 450 milliseconds total.", "source_uri": "architecture/control-plane.md"}
+]
